@@ -28,8 +28,8 @@ export class UsersService {
     ).exec();
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(id: string, updateUserDto: UpdateUserDto) {
+    await this.userModel.updateOne({_id: id}, updateUserDto);
   }
 
   async remove(id: string): Promise<void> {
